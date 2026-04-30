@@ -1,0 +1,356 @@
+/* ===== RESET ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0d0d0d;
+  color: #f4f4f4;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.95);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid #222;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  gap: 12px;
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+}
+
+nav a {
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  background: #00ff8840;
+  color: #000;
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #00ff88;
+  color: #000;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+/* ===== HERO ===== */
+.hero {
+  height: 60vh;
+  background: url('img/banner.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.65);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.hero h2 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 10px;
+}
+
+.hero p {
+  margin-bottom: 20px;
+}
+
+/* ===== PLANOS ===== */
+.planos {
+  padding: 50px 0;
+}
+
+.planos h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.planos .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.card .preco {
+  font-size: 2rem;
+  color: #00ff88;
+  margin-bottom: 15px;
+}
+
+.card ul {
+  list-style: none;
+  margin-bottom: 15px;
+}
+
+.card ul li {
+  margin-bottom: 8px;
+}
+
+/* Destaque do plano mais vendido ou grátis */
+.destaque {
+  border: 2px solid #00ff88;
+  box-shadow: 0 0 18px rgba(0, 255, 136, 0.25);
+}
+
+/* ===== LOGOS ===== */
+.logos {
+  padding: 40px 0;
+  background: #111;
+  text-align: center;
+  overflow: hidden;
+}
+
+.logos h2 {
+  margin-bottom: 10px;
+}
+
+.logos p {
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.logos-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.logos-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  will-change: transform;
+}
+
+.logo-card {
+  scroll-snap-align: center;
+  min-width: 160px;
+  height: 140px;
+  background: #1a1a1a;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #2a2a2a;
+  transition: 0.3s;
+}
+
+.logo-card:hover {
+  transform: scale(1.1);
+  border-color: #00ff88;
+}
+
+.logo-card img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+/* ===== CONTATO ===== */
+.contato {
+  padding: 60px 0;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.contato-card,
+.contato-form-wrap {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.contato-card h2,
+.contato-form-wrap h2 {
+  margin-bottom: 8px;
+}
+
+.contato-card p {
+  color: #ccc;
+  margin-bottom: 14px;
+}
+
+.contato-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contato-card ul li {
+  margin-bottom: 8px;
+}
+
+.contato input,
+.contato textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #0d0d0d;
+  color: #f2f2f2;
+}
+
+.contato textarea {
+  resize: vertical;
+}
+
+/* Botão WhatsApp colorido para caso não queira escrever */
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: #25d366;
+  color: #fff;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #000;
+  border-top: 1px solid #222;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1080px) {
+  .container {
+    width: min(1000px, 95%);
+  }
+
+  .contato-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .logos-slider {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .planos .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .contato-card,
+  .contato-form-wrap {
+    padding: 18px;
+  }
+
+  header nav {
+    display: none;
+  }
+
+  header .container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .hero {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 640px) {
+  header .container {
+    padding: 12px 0;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .cards {
+    gap: 16px;
+  }
+
+  .logo-card {
+    min-width: 140px;
+    height: 120px;
+  }
+
+  .contato-card,
+  .contato-form-wrap {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 520px) {
+  .overlay {
+    padding: 15px;
+  }
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+}
