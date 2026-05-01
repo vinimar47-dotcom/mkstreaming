@@ -1,12 +1,17 @@
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  const whatsappNumber = '553197375149'; // Substitua pelo número correto
+  const whatsappNumber = '553197375149'; // seu número (já conferido)
 
   /* ===== SLIDER AUTOMÁTICO ===== */
   const slider = document.querySelector(".logos-slider");
   const track = document.querySelector(".logos-track");
   if (slider && track) {
-    let speed = 0.7; // px por frame
+    let speed = 0.7;
     let running = true;
     let offset = 0;
 
@@ -26,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slider.addEventListener('mouseenter', () => {
       running = false;
     });
+
     slider.addEventListener('mouseleave', () => {
       if (!running) {
         running = true;
@@ -39,11 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const plano = btn.dataset.plano || 'Plano';
       const planoInput = document.getElementById('plano');
-      if(planoInput) planoInput.value = plano;
+      if (planoInput) planoInput.value = plano;
 
-      // scroll suave para a seção contato
       const contato = document.getElementById('contato');
-      if(contato){
+      if (contato) {
         const headerHeight = document.querySelector('header').offsetHeight;
         const offsetTop = contato.offsetTop - headerHeight - 20;
         window.scrollTo({ top: offsetTop, behavior: 'smooth' });
@@ -53,20 +58,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ===== FORMULÁRIO WHATSAPP ===== */
   const contatoForm = document.getElementById('contactForm');
-  if(contatoForm){
-    contatoForm.addEventListener('submit', e=>{
+  if (contatoForm) {
+    contatoForm.addEventListener('submit', e => {
       e.preventDefault();
+
       const nome = document.getElementById('nome').value.trim();
       const email = document.getElementById('email').value.trim();
       const plano = document.getElementById('plano').value.trim();
       const mensagem = document.getElementById('mensagem').value.trim();
 
-      if(!nome || !email || !plano){
+      if (!nome || !email || !plano) {
         alert('Por favor, preencha os campos nome, e-mail e plano.');
         return;
       }
 
-      const texto = encodeURIComponent(`Olá, meu nome é ${nome}. Email: ${email}. Plano: ${plano}. Mensagem: ${mensagem || 'Sem mensagem adicional'}`);
+      // ✅ TEXTO FORMATADO COM QUEBRA DE LINHA
+      const texto = encodeURIComponent(
+`Olá, meu nome é ${nome}.
+
+Email: ${email}
+Plano: ${plano}
+
+Mensagem:
+${mensagem || 'Sem mensagem adicional'}`
+      );
+
       window.open(`https://wa.me/${whatsappNumber}?text=${texto}`, '_blank', 'noopener');
 
       contatoForm.reset();
@@ -76,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ===== LINK DIRETO WHATSAPP ===== */
   const whatsappLink = document.getElementById('whatsappLink');
-  if(whatsappLink){
+  if (whatsappLink) {
     whatsappLink.href = `https://wa.me/${whatsappNumber}`;
   }
 

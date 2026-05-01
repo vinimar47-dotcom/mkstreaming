@@ -48,6 +48,17 @@ nav {
   gap: 12px;
 }
 
+/* ===== LOGO ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo img {
+  height: 40px;
+}
+
 nav a {
   padding: 8px 10px;
   border-radius: 8px;
