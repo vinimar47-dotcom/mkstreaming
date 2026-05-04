@@ -1,11 +1,7 @@
 
-
-
-
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  const whatsappNumber = '553197375149'; // seu número (já conferido)
+  const whatsappNumber = '5531997375149'; // seu número correto
 
   /* ===== SLIDER AUTOMÁTICO ===== */
   const slider = document.querySelector(".logos-slider");
@@ -31,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     slider.addEventListener('mouseenter', () => {
       running = false;
     });
-
     slider.addEventListener('mouseleave', () => {
       if (!running) {
         running = true;
@@ -45,10 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       const plano = btn.dataset.plano || 'Plano';
       const planoInput = document.getElementById('plano');
-      if (planoInput) planoInput.value = plano;
+      if(planoInput) planoInput.value = plano;
 
       const contato = document.getElementById('contato');
-      if (contato) {
+      if(contato){
         const headerHeight = document.querySelector('header').offsetHeight;
         const offsetTop = contato.offsetTop - headerHeight - 20;
         window.scrollTo({ top: offsetTop, behavior: 'smooth' });
@@ -58,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ===== FORMULÁRIO WHATSAPP ===== */
   const contatoForm = document.getElementById('contactForm');
-  if (contatoForm) {
-    contatoForm.addEventListener('submit', e => {
+  if(contatoForm){
+    contatoForm.addEventListener('submit', e=>{
       e.preventDefault();
 
       const nome = document.getElementById('nome').value.trim();
@@ -67,33 +62,37 @@ document.addEventListener('DOMContentLoaded', () => {
       const plano = document.getElementById('plano').value.trim();
       const mensagem = document.getElementById('mensagem').value.trim();
 
-      if (!nome || !email || !plano) {
-        alert('Por favor, preencha os campos nome, e-mail e plano.');
+      if(!nome || !email || !plano){
+        alert('Por favor, preencha nome, e-mail e plano.');
         return;
       }
 
-      // ✅ TEXTO FORMATADO COM QUEBRA DE LINHA
       const texto = encodeURIComponent(
 `Olá, meu nome é ${nome}.
 
 Email: ${email}
 Plano: ${plano}
-
 Mensagem:
 ${mensagem || 'Sem mensagem adicional'}`
       );
 
-      window.open(`https://wa.me/${whatsappNumber}?text=${texto}`, '_blank', 'noopener');
+      window.open(`https://wa.me/${whatsappNumber}?text=${texto}`, '_blank');
 
       contatoForm.reset();
       document.getElementById('plano').value = '';
     });
   }
 
-  /* ===== LINK DIRETO WHATSAPP ===== */
+  /* ===== BOTÃO DIRETO WHATSAPP ===== */
   const whatsappLink = document.getElementById('whatsappLink');
-  if (whatsappLink) {
-    whatsappLink.href = `https://wa.me/${whatsappNumber}`;
+  if(whatsappLink){
+    const textoDireto = encodeURIComponent(
+`Olá, vim pelo site da MK Streaming.
+
+Quero mais informações sobre os planos.`
+    );
+
+    whatsappLink.href = `https://wa.me/${whatsappNumber}?text=${textoDireto}`;
   }
 
 });
